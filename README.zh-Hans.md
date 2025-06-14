@@ -107,7 +107,7 @@ mcr node my-app.js -r v8,console-details
 > 内置V8报告(仅V8格式数据支持):
 
 - `v8`
-    - 推荐使用: 
+    - 推荐使用:
         - 全新的原生V8覆盖率报告界面，更好的用户体验
         - 支持原生的Bytes覆盖率指标
         - 支持高性能处理大数据
@@ -129,7 +129,7 @@ mcr node my-app.js -r v8,console-details
 - `clover`
 - `cobertura`
 - `html`
-    - [Istanbul html](https://cenfun.github.io/monocart-coverage-reports/istanbul/) 
+    - [Istanbul html](https://cenfun.github.io/monocart-coverage-reports/istanbul/)
     - [V8 to Istanbul](https://cenfun.github.io/monocart-coverage-reports/v8-and-istanbul/istanbul)
 - `html-spa`
 - `json`
@@ -146,7 +146,7 @@ mcr node my-app.js -r v8,console-details
 
 > 其他内置报告 (V8和Istanbul格式数据都支持):
 
-- `codecov` 保存覆盖率数据到 [Codecov](https://docs.codecov.com/docs/codecov-custom-coverage-format) 专属的json文件 (默认是`codecov.json`), 见[例子](https://app.codecov.io/github/cenfun/monocart-coverage-reports) 
+- `codecov` 保存覆盖率数据到 [Codecov](https://docs.codecov.com/docs/codecov-custom-coverage-format) 专属的json文件 (默认是`codecov.json`), 见[例子](https://app.codecov.io/github/cenfun/monocart-coverage-reports)
 
 - `codacy` 保存覆盖率数据到 [Codacy](https://api.codacy.com/swagger#tocscoveragereport) 专属的json文件 (默认是`codacy.json`)
 
@@ -156,7 +156,7 @@ mcr node my-app.js -r v8,console-details
 
 - `console-details` 在控制台显示每个文件的覆盖率概要。如果是Github actions，可以使用环境变量`FORCE_COLOR: true`来强制开启颜色支持
 
-![](./assets/console-details.png)
+![](./documentation/public/console-details.png)
 
 - `markdown-summary` 保存概要信息到markdown文件 (默认是`coverage-summary.md`)。 如果是Github actions, 可以把markdown的内容添加到[a job summary](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)
 ```sh
@@ -227,21 +227,21 @@ const mcr = MCR(coverageOptions);
 ## Compare Reports
 > 如果是V8数据格式使用Istanbul的报告，将自动从V8转换到Istanbul
 
-| | Istanbul | V8 | V8 to Istanbul |
-| :--------------| :------ | :------ | :----------------------  |
-| 数据格式 | [Istanbul](https://github.com/gotwarlost/istanbul/blob/master/coverage.json.md) (Object) | [V8](#v8-coverage-data-format) (Array) | [V8](#v8-coverage-data-format) (Array) |
-| 输出报告 | [Istanbul reports](#available-reports) | [V8 reports](#available-reports)  | [Istanbul reports](#available-reports) |
-| - Bytes 字节覆盖率 | ❌ | ✅ | ❌ |
-| - Statements 语句覆盖率 | ✅ | ✅ | ✅ |
-| - Branches 分支覆盖率 | ✅ | ✅ | ✅ |
-| - Functions 函数覆盖率 | ✅ | ✅ | ✅ |
-| - Lines 行覆盖率 | ✅ | ✅ | ✅ |
-| - Execution counts 函数执行数 | ✅ | ✅ | ✅ |
-| CSS 覆盖率 | ❌ | ✅ | ✅ |
-| 压缩过的代码 | ❌ | ✅ | ❌ |
+|                               | Istanbul                                                                                 | V8                                     | V8 to Istanbul                         |
+| :---------------------------- | :--------------------------------------------------------------------------------------- | :------------------------------------- | :------------------------------------- |
+| 数据格式                      | [Istanbul](https://github.com/gotwarlost/istanbul/blob/master/coverage.json.md) (Object) | [V8](#v8-coverage-data-format) (Array) | [V8](#v8-coverage-data-format) (Array) |
+| 输出报告                      | [Istanbul reports](#available-reports)                                                   | [V8 reports](#available-reports)       | [Istanbul reports](#available-reports) |
+| - Bytes 字节覆盖率            | ❌                                                                                        | ✅                                      | ❌                                      |
+| - Statements 语句覆盖率       | ✅                                                                                        | ✅                                      | ✅                                      |
+| - Branches 分支覆盖率         | ✅                                                                                        | ✅                                      | ✅                                      |
+| - Functions 函数覆盖率        | ✅                                                                                        | ✅                                      | ✅                                      |
+| - Lines 行覆盖率              | ✅                                                                                        | ✅                                      | ✅                                      |
+| - Execution counts 函数执行数 | ✅                                                                                        | ✅                                      | ✅                                      |
+| CSS 覆盖率                    | ❌                                                                                        | ✅                                      | ✅                                      |
+| 压缩过的代码                  | ❌                                                                                        | ✅                                      | ❌                                      |
 
 ## Collecting Istanbul Coverage Data
-- 在收集Istanbul覆盖率数据之前，需要编译源代码来安装Istanbul计数器 
+- 在收集Istanbul覆盖率数据之前，需要编译源代码来安装Istanbul计数器
     - webpack babel-loader: [babel-plugin-istanbul](https://github.com/istanbuljs/babel-plugin-istanbul), 参见例子: [webpack.config-istanbul.js](./test/build/webpack.config-istanbul.js)
     - 官方CLI: [nyc instrument](https://github.com/istanbuljs/nyc/blob/master/docs/instrument.md) 或API: [istanbul-lib-instrument](https://github.com/istanbuljs/istanbuljs/blob/main/packages/istanbul-lib-instrument/api.md)
     - vite: [vite-plugin-istanbul](https://github.com/ifaxity/vite-plugin-istanbul)
@@ -350,15 +350,15 @@ const coverageData = [... jsCoverage.map((it) => {
 - [Inspector](https://nodejs.org/docs/latest/api/inspector.html) API
    - 首先连接到Node.js的V8 inspector
    - 然后使用inspector的覆盖相关API来开启和收集覆盖率数据
-   - 参见例子: 
+   - 参见例子:
    > node [./test/test-node-ins.js](./test/test-node-ins.js)
    - vm的例子 (注意这里需要使用`scriptOffset`，因为vm里一般都会加一层包裹代码，需要这个偏移位置来修正覆盖率数据块的位置):
    > node [./test/test-node-vm.js](./test/test-node-vm.js)
-   
+
 - [CDP](https://chromedevtools.github.io/devtools-protocol/) API
     - 开启[Node调试](https://nodejs.org/en/guides/debugging-getting-started/)
     - 使用CDP的覆盖率接口开启和收集覆盖率数据
-    - 参见例子: 
+    - 参见例子:
     > node --inspect=9229 [./test/test-node-cdp.js](./test/test-node-cdp.js)
 
 - [Node Debugging](https://nodejs.org/en/guides/debugging-getting-started) + CDP + NODE_V8_COVERAGE + V8 API
@@ -491,15 +491,15 @@ export interface ScriptCoverage {
 export type V8CoverageData = ScriptCoverage[];
 ```
 
-| JavaScript Runtime | V8 Coverage |  |
-| :--------------| :----: | :----------------------  |
-| Chrome (65%) | ✅ | Chromium-based |
-| Safari (18%) | ❌ |  |
-| Edge (5%) | ✅ | Chromium-based |
-| Firefox (2%) | ❌ |  |
-| Node.js | ✅ |  |
-| Deno | ❌ | [issue](https://github.com/denoland/deno/issues/23359) |
-| Bun | ❌ |  |
+| JavaScript Runtime | V8 Coverage |                                                        |
+| :----------------- | :---------: | :----------------------------------------------------- |
+| Chrome (65%)       |      ✅      | Chromium-based                                         |
+| Safari (18%)       |      ❌      |                                                        |
+| Edge (5%)          |      ✅      | Chromium-based                                         |
+| Firefox (2%)       |      ❌      |                                                        |
+| Node.js            |      ✅      |                                                        |
+| Deno               |      ❌      | [issue](https://github.com/denoland/deno/issues/23359) |
+| Bun                |      ❌      |                                                        |
 
 ## Filtering Results
 ## Using `entryFilter` and `sourceFilter` to filter the results for V8 report
@@ -509,7 +509,7 @@ export type V8CoverageData = ScriptCoverage[];
 - *dist/vendor.js*
 - *dist/something-else.js*
 
-这个时候可以使用`entryFilter`来过滤这些入口文件. 比如我们不需要看到`vendor.js`和`something-else.js`的覆盖率，就可以过滤掉，只剩下1个文件 
+这个时候可以使用`entryFilter`来过滤这些入口文件. 比如我们不需要看到`vendor.js`和`something-else.js`的覆盖率，就可以过滤掉，只剩下1个文件
 
 - *dist/main.js*
 
@@ -602,7 +602,7 @@ const coverageOptions = {
 ```js
 const coverageOptions = {
     sourcePath: {
-        'my-dist-file1/': '', 
+        'my-dist-file1/': '',
         'my-dist-file2/': ''
     }
 };
@@ -876,7 +876,7 @@ const coverageOptions = {
         '**/node_modules/**': false,
         '**/src/**': true
     },
-    
+
     sourcePath: (filePath, info) => {
         // Unify the file path for the same files
         // For example, the file index.js has different paths:
@@ -890,7 +890,7 @@ const coverageOptions = {
         ['v8'],
         ['console-details']
     ],
-    
+
     onEnd: () => {
         // remove the raw files if it useless
         // inputDir.forEach((p) => {
@@ -1152,7 +1152,7 @@ const coverageOptions = {
 ```yml
 - name: Analyze with SonarCloud
     uses: sonarsource/sonarcloud-github-action@master
-    env: 
+    env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     with:
         projectBaseDir: ./

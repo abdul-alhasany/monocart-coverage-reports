@@ -107,7 +107,7 @@ For more information, see [Command Line](#command-line)
 > V8 build-in reports (V8 data only):
 
 - `v8`
-    - Features: 
+    - Features:
         - A Brand-New V8 Coverage Report User Interface
         - Support for Native Byte Statistics
         - Support processing big data with high performance
@@ -129,7 +129,7 @@ For more information, see [Command Line](#command-line)
 - `clover`
 - `cobertura`
 - `html`
-    - [Istanbul html](https://cenfun.github.io/monocart-coverage-reports/istanbul/) 
+    - [Istanbul html](https://cenfun.github.io/monocart-coverage-reports/istanbul/)
     - [V8 to Istanbul](https://cenfun.github.io/monocart-coverage-reports/v8-and-istanbul/istanbul)
 - `html-spa`
 - `json`
@@ -156,7 +156,7 @@ For more information, see [Command Line](#command-line)
 
 - `console-details` Show coverage details in the console. Like `text`, but for V8. For Github actions, we can enforce color with env: `FORCE_COLOR: true`.
 
-![](./assets/console-details.png)
+![](./documentation/public/console-details.png)
 
 - `markdown-summary` Save coverage summary to a markdown file (defaults to `coverage-summary.md`). For Github actions, we can show the markdown content to [a job summary](https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)
 ```sh
@@ -226,18 +226,18 @@ const mcr = MCR(coverageOptions);
 ## Compare Reports
 > If the V8 data format is used for Istanbul reports, it will be automatically converted from V8 to Istanbul.
 
-| | Istanbul | V8 | V8 to Istanbul |
-| :--------------| :------ | :------ | :----------------------  |
-| Coverage data | [Istanbul](https://github.com/gotwarlost/istanbul/blob/master/coverage.json.md) (Object) | [V8](#v8-coverage-data-format) (Array) | [V8](#v8-coverage-data-format) (Array) |
-| Output | [Istanbul reports](#available-reports) | [V8 reports](#available-reports)  | [Istanbul reports](#available-reports) |
-| - Bytes | ❌ | ✅ | ❌ |
-| - Statements | ✅ | ✅ | ✅ |
-| - Branches | ✅ | ✅ | ✅ |
-| - Functions | ✅ | ✅ | ✅ |
-| - Lines | ✅ | ✅ | ✅ |
-| - Execution counts | ✅ | ✅ | ✅ |
-| CSS coverage | ❌ | ✅ | ✅ |
-| Minified code | ❌ | ✅ | ❌ |
+|                    | Istanbul                                                                                 | V8                                     | V8 to Istanbul                         |
+| :----------------- | :--------------------------------------------------------------------------------------- | :------------------------------------- | :------------------------------------- |
+| Coverage data      | [Istanbul](https://github.com/gotwarlost/istanbul/blob/master/coverage.json.md) (Object) | [V8](#v8-coverage-data-format) (Array) | [V8](#v8-coverage-data-format) (Array) |
+| Output             | [Istanbul reports](#available-reports)                                                   | [V8 reports](#available-reports)       | [Istanbul reports](#available-reports) |
+| - Bytes            | ❌                                                                                        | ✅                                      | ❌                                      |
+| - Statements       | ✅                                                                                        | ✅                                      | ✅                                      |
+| - Branches         | ✅                                                                                        | ✅                                      | ✅                                      |
+| - Functions        | ✅                                                                                        | ✅                                      | ✅                                      |
+| - Lines            | ✅                                                                                        | ✅                                      | ✅                                      |
+| - Execution counts | ✅                                                                                        | ✅                                      | ✅                                      |
+| CSS coverage       | ❌                                                                                        | ✅                                      | ✅                                      |
+| Minified code      | ❌                                                                                        | ✅                                      | ❌                                      |
 
 ## Collecting Istanbul Coverage Data
 - Before coverage collection: Instrumenting source code with Istanbul
@@ -347,15 +347,15 @@ Possible solutions:
 - [Inspector](https://nodejs.org/docs/latest/api/inspector.html) API
    - Connecting to the V8 inspector and enable V8 coverage.
    - Taking coverage data and adding it to the report.
-   - Example: 
+   - Example:
    > node [./test/test-node-ins.js](./test/test-node-ins.js)
    - vm Example (scriptOffset):
    > node [./test/test-node-vm.js](./test/test-node-vm.js)
-   
+
 - [CDP](https://chromedevtools.github.io/devtools-protocol/) API
     - Enabling [Node Debugging](https://nodejs.org/en/guides/debugging-getting-started/).
     - Collecting coverage data with CDP API.
-    - Example: 
+    - Example:
     > node --inspect=9229 [./test/test-node-cdp.js](./test/test-node-cdp.js)
 
 - [Node Debugging](https://nodejs.org/en/guides/debugging-getting-started) + CDP + NODE_V8_COVERAGE + V8 API
@@ -487,15 +487,15 @@ export interface ScriptCoverage {
 export type V8CoverageData = ScriptCoverage[];
 ```
 
-| JavaScript Runtime | V8 Coverage |  |
-| :--------------| :----: | :----------------------  |
-| Chrome (65%) | ✅ | Chromium-based |
-| Safari (18%) | ❌ |  |
-| Edge (5%) | ✅ | Chromium-based |
-| Firefox (2%) | ❌ |  |
-| Node.js | ✅ |  |
-| Deno | ❌ | [issue](https://github.com/denoland/deno/issues/23359) |
-| Bun | ❌ |  |
+| JavaScript Runtime | V8 Coverage |                                                        |
+| :----------------- | :---------: | :----------------------------------------------------- |
+| Chrome (65%)       |      ✅      | Chromium-based                                         |
+| Safari (18%)       |      ❌      |                                                        |
+| Edge (5%)          |      ✅      | Chromium-based                                         |
+| Firefox (2%)       |      ❌      |                                                        |
+| Node.js            |      ✅      |                                                        |
+| Deno               |      ❌      | [issue](https://github.com/denoland/deno/issues/23359) |
+| Bun                |      ❌      |                                                        |
 
 ## Filtering Results
 ### Using `entryFilter` and `sourceFilter` to filter the results for V8 report
@@ -505,7 +505,7 @@ When V8 coverage data collected, it actually contains the data of all entry file
 - *dist/vendor.js*
 - *dist/something-else.js*
 
-We can use `entryFilter` to filter the entry files. For example, we should remove `vendor.js` and `something-else.js` if they are not in our coverage scope. 
+We can use `entryFilter` to filter the entry files. For example, we should remove `vendor.js` and `something-else.js` if they are not in our coverage scope.
 
 - *dist/main.js*
 
@@ -599,7 +599,7 @@ It also supports simple key/value replacement:
 ```js
 const coverageOptions = {
     sourcePath: {
-        'my-dist-file1/': '', 
+        'my-dist-file1/': '',
         'my-dist-file2/': ''
     }
 };
@@ -825,7 +825,7 @@ The following usage scenarios may require merging coverage reports:
 - Using `Codecov`, a popular online code coverage service, which supports automatic merging of reports. Please use report `codecov`, it will generate report file `codecov.json`. If multiple `codecov.json` files are generated, upload all these files, they will be automatically merged. see [Codecov](#codecov) and [merging reports](https://docs.codecov.com/docs/merging-reports)
 
 ### Manual Merging
-If the reports cannot be merged automatically, then here is how to manually merge the reports.  
+If the reports cannot be merged automatically, then here is how to manually merge the reports.
 First, using the `raw` report to export the original coverage data to the specified directory.
 - For example, we have `raw` coverage data from `unit test`, which is output to `./coverage-reports/unit/raw`. Unit test examples:
     - `Jest` + [jest-monocart-coverage](https://github.com/cenfun/jest-monocart-coverage)
@@ -874,7 +874,7 @@ const coverageOptions = {
         '**/node_modules/**': false,
         '**/src/**': true
     },
-    
+
     sourcePath: (filePath, info) => {
         // Unify the file path for the same files
         // For example, the file index.js has different paths:
@@ -888,7 +888,7 @@ const coverageOptions = {
         ['v8'],
         ['console-details']
     ],
-    
+
     onEnd: () => {
         // remove the raw files if it useless
         // inputDir.forEach((p) => {
@@ -922,7 +922,7 @@ const a = tf ? 'true' : 'false';
                ^     ^  ^
               m1     p  m2
 ```
-In the generated code, there is a position `p`, and we need to find out its corresponding position in the original code. Unfortunately, there is no matched mapping for the position `p`. Instead, it has two adjacent upstream and downstream mappings `m1` and `m2`, so, the original position of `p` that we are looking for, might not be able to be precisely located. Especially, the generated code is different from the original code, such as the code was minified, compressed or converted, it is difficult to find the exact original position without matched mapping. 
+In the generated code, there is a position `p`, and we need to find out its corresponding position in the original code. Unfortunately, there is no matched mapping for the position `p`. Instead, it has two adjacent upstream and downstream mappings `m1` and `m2`, so, the original position of `p` that we are looking for, might not be able to be precisely located. Especially, the generated code is different from the original code, such as the code was minified, compressed or converted, it is difficult to find the exact original position without matched mapping.
 - Further understanding of sourcemap, try [Debug for Coverage and Sourcemap](#debug-for-coverage-and-sourcemap)
 
 How `MCR` Works:
@@ -1147,7 +1147,7 @@ const coverageOptions = {
 ```yml
 - name: Analyze with SonarCloud
     uses: sonarsource/sonarcloud-github-action@master
-    env: 
+    env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     with:
         projectBaseDir: ./
