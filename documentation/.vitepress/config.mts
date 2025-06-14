@@ -7,6 +7,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
   ],
+  base: '/monocart-coverage-reports/',
   locales: {
     root: {
       label: 'English',
